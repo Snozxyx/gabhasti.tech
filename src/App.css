@@ -1,0 +1,4 @@
+/* Intentionally minimal. Layout is handled per-page. */
+#root {
+  min-height: 100vh;
+}

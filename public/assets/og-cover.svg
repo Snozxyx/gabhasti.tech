@@ -1,0 +1,33 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="50%" stop-color="#0d0d15"/>
+      <stop offset="100%" stop-color="#0a0a0f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#ffffff10"/>
+      <stop offset="60%" stop-color="#7b7bff15"/>
+      <stop offset="100%" stop-color="#00000000"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#b5b8ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <g filter="url(#shadow)">
+    <text x="80" y="230" fill="#9ca3af" font-family="IBM Plex Mono, monospace" font-size="20" letter-spacing="6">// PORTFOLIO · JOURNAL</text>
+    <text x="80" y="320" fill="url(#accent)" font-family="IBM Plex Mono, monospace" font-size="92" font-weight="600" letter-spacing="-1">Gabhasti Giri Sinha</text>
+    <text x="80" y="380" fill="#e5e7eb" font-family="Montserrat, sans-serif" font-size="32" font-weight="600" letter-spacing="-0.5">Building elegant software and stories.</text>
+    <text x="80" y="430" fill="#9ca3af" font-family="Montserrat, sans-serif" font-size="24" font-weight="400" letter-spacing="-0.2">
+      Full-stack engineering · Product thinking · Writing
+    </text>
+  </g>
+  <defs>
+    <filter id="shadow" x="0" y="0" width="1200" height="630">
+      <feDropShadow dx="0" dy="15" stdDeviation="30" flood-color="#00000080"/>
+    </filter>
+  </defs>
+</svg>
