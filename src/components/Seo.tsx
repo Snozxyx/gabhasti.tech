@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 import { absoluteUrl, buildTitle, siteConfig, type SeoProps } from '@/lib/seo';
 
 export const Seo = ({
@@ -16,7 +16,7 @@ export const Seo = ({
   const metaTitle = buildTitle(title);
   const metaDescription = description || siteConfig.description;
   const canonical = canonicalPath ? absoluteUrl(canonicalPath) : siteConfig.url;
-  const ogImage = absoluteUrl(image || '/logo.png');
+  const ogImage = absoluteUrl(image || '/assets/og-cover.svg');
 
   return (
     <Helmet>

@@ -20,17 +20,14 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { useEffect } from "react";
 import { initGA, sendPageView } from "@/lib/ga";
 import { trackPageView } from "@/lib/analytics";
-import { HelmetProvider } from "react-helmet-async";
 
 export default function App() {
   return (
     <BrowserRouter>
-      <HelmetProvider>
-        <AuthProvider>
-          <Toaster position="top-right" theme="dark" />
-          <AppRoutes />
-        </AuthProvider>
-      </HelmetProvider>
+      <AuthProvider>
+        <Toaster position="top-right" theme="dark" />
+        <AppRoutes />
+      </AuthProvider>
     </BrowserRouter>
   );
 }
