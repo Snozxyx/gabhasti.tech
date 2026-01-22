@@ -22,10 +22,5 @@
   "env": {
     "VITE_SUPABASE_URL": "@supabase-url",
     "VITE_SUPABASE_ANON_KEY": "@supabase-anon-key"
-  },
-  "functions": {
-    "src/pages/api/**/*.js": {
-      "runtime": "nodejs18.x"
-    }
   }
 }
