@@ -2,14 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { 
   Upload, 
   Edit, 
   Save, 
-  X, 
   User, 
-  Mail, 
   Calendar,
   FileText,
   FolderGit2
@@ -22,7 +19,6 @@ import { useAuth } from '@/hooks/useAuth';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import { format } from 'date-fns';
-import { cn } from '@/lib/utils';
 
 export const UserProfile = () => {
   const { username } = useParams<{ username: string }>();

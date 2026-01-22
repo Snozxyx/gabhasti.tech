@@ -45,6 +45,7 @@ const Admin = () => {
     totalComments: 0,
     totalUsers: 0,
     bannedUsers: 0,
+    contactMessages: 0,
   });
   const [statsLoading, setStatsLoading] = useState(true);
   const [isCheckingAdmin, setIsCheckingAdmin] = useState(true); // Start as true to wait for check
@@ -244,13 +245,15 @@ const Admin = () => {
         publishedPosts,
         totalComments,
         totalUsers,
-        bannedUsers
+        bannedUsers,
+        contactMessages
       ] = await Promise.all([
         getCount('blog_posts'),
         getCount('blog_posts', (q) => q.eq('is_published', true)),
         getCount('comments'),
         getCount('profiles'),
-        getCount('profiles', (q) => q.eq('is_banned', true))
+        getCount('profiles', (q) => q.eq('is_banned', true)),
+        getCount('contact_messages')
       ]);
 
       const { data: viewsData, error: viewsError } = await supabase
@@ -270,6 +273,7 @@ const Admin = () => {
         totalComments,
         totalUsers,
         bannedUsers,
+        contactMessages,
       });
     } catch (error) {
       console.error('Stats fetch error:', error);

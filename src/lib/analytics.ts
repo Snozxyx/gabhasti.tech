@@ -47,7 +47,7 @@ export const trackActivity = async (activity: {
       .limit(1)
       .single();
 
-    const activities = existing?.activities || [];
+    const activities = Array.isArray(existing?.activities) ? existing.activities : [];
     activities.push({
       ...activity,
       timestamp: new Date().toISOString(),
@@ -74,7 +74,7 @@ export const trackActivity = async (activity: {
 export const updateTimeOnPage = async (pagePath: string, timeInSeconds: number) => {
   try {
     const sessionId = getOrCreateSessionId();
-    const { data: { user } } = await supabase.auth.getUser();
+    const { data } = await supabase.auth.getUser();
 
     const { data: existing } = await supabase
       .from('analytics')
@@ -99,7 +99,7 @@ export const updateTimeOnPage = async (pagePath: string, timeInSeconds: number) 
 export const updateScrollDepth = async (pagePath: string, depth: number) => {
   try {
     const sessionId = getOrCreateSessionId();
-    const { data: { user } } = await supabase.auth.getUser();
+    const { data } = await supabase.auth.getUser();
 
     const { data: existing } = await supabase
       .from('analytics')

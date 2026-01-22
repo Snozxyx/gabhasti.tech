@@ -19,26 +19,23 @@ export const logError = async (error: ErrorLog) => {
     const errorId = generateErrorId();
     let userId = null;
     try {
-      const user = await account.get();
-      userId = user?.$id || null;
+      const { data: { user } } = await supabase.auth.getUser();
+      userId = user?.id || null;
     } catch {
       // User not authenticated
     }
     const sessionId = sessionStorage.getItem('analytics_session_id') || null;
 
-    await databases.createDocument(
-      DATABASE_ID,
-      COLLECTIONS.ERROR_LOGS,
-      ID.unique(),
-      {
+    await supabase
+      .from('error_logs')
+      .insert({
         error_id: errorId,
         user_id: userId,
         session_id: sessionId,
         ...error,
         resolved: false,
         created_at: new Date().toISOString(),
-      }
-    );
+      });
 
     return errorId;
   } catch (err) {
