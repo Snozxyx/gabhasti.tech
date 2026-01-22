@@ -74,7 +74,6 @@ export const trackActivity = async (activity: {
 export const updateTimeOnPage = async (pagePath: string, timeInSeconds: number) => {
   try {
     const sessionId = getOrCreateSessionId();
-    const { data: { user } } = await supabase.auth.getUser();
 
     const { data: existing } = await supabase
       .from('analytics')
@@ -99,7 +98,6 @@ export const updateTimeOnPage = async (pagePath: string, timeInSeconds: number) 
 export const updateScrollDepth = async (pagePath: string, depth: number) => {
   try {
     const sessionId = getOrCreateSessionId();
-    const { data: { user } } = await supabase.auth.getUser();
 
     const { data: existing } = await supabase
       .from('analytics')
