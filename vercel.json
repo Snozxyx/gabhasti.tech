@@ -16,7 +16,7 @@
       "dest": "/api/$1"
     },
     {
-      "src": "/(.*)",
+      "src": "/((?!assets|robots.txt|sitemap.xml).*)",
       "dest": "/index.html"
     }
   ]
